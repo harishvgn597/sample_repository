@@ -1,0 +1,22 @@
+<!-- ... (previously existing code) ... -->
+<body>
+    <div id="app" class="container">
+      <h1>Theater Booking</h1>
+      <div class="theater-screen">
+        <h2>All Eyes Up Here</h2>
+      </div>
+      <div class="seats">
+        <div v-for="seat in seats" :key="seat.id">
+          <input type="checkbox" :id="seat.id" :disabled="seat.booked" @change="toggleSeat(seat.id)" v-model="seat.selected">
+          <label :for="seat.id" :class="{ 'seat-label': true, 'selected': seat.selected, 'booked': seat.booked }">{{ seat.id }}</label>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" @click="bookSeats">Book Selected Seats</button>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </body>
+  </html>
+  

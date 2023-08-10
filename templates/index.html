@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Management</h1>
+    
+    <h2>Add a New Book</h2>
+    <form action="/add_book" method="post">
+        <label for="book_name">Book Name:</label>
+        <input type="text" id="book_name" name="book_name" required>
+        <input type="submit" value="Add Book">
+    </form>
+    
+    <h2>Existing Books</h2>
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Actions</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.name }}</td>
+            <td>
+                <a href="{{ url_for('update_book', book_id=book.id) }}">Update</a>
+                <a href="{{ url_for('delete_book', book_id=book.id) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .widget {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="widget">
+            <h2>Rohith</h2>
+            <p>Coder</p>
+        </div>
+        <div class="widget">
+            <h2>Rohith</h2>
+            <p>Music Director</p>
+        </div>
+        <div class="widget">
+            <h2>Rohith</h2>
+            <p>{{name}}</p>
+        </div>
+    </div>
+</body>
+</html>
